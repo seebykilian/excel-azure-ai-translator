@@ -1,46 +1,52 @@
 # excel-azure-ai-translator
  Pour traduire des colonnes spécifiques d'une feuille de travail Excel dans plusieurs langues à l'aide du module de traduction basé sur l'intelligence artificielle Azure AI Translator 
 
-| Langue                       | Code langue | Langue                         | Code langue | Langue                         | Code langue | Langue                         | Code langue |
-|------------------------------|:-----------:|--------------------------------|:-----------:|--------------------------------|:-----------:|--------------------------------|:-----------:|
-| Afrikaans                    | `af`        | Italien                        | `it`        | Albanais                       | `sq`        | Japonais                       | `ja`        |
-| Amharique                    | `am`        | Kannada                        | `kn`        | Arabe                          | `ar`        | Kashmiri                       | `ks`        |
-| Arménien                     | `hy`        | Kazakh                         | `kk`        | Assamais                       | `as`        | Khmer                          | `km`        |
-| Azerbaïdjanais (Latin)       | `az`        | Kinyarwanda                    | `rw`        | Bangla                         | `bn`        | Klingon                        | `tlh-Latn`  |
-| Bashkir                      | `ba`        | Klingon (plqaD)                | `tlh-Piqd`  | Basque                         | `eu`        | Konkani                        | `gom`       |
-| Bhojpouri                    | `bho`       | Coréen                         | `ko`        | Bodo                           | `brx`       | Kurde (central)                | `ku`        |
-| Bosniaque (latin)            | `bs`        | Kurde (Nord)                   | `kmr`       | Bulgare                        | `bg`        | Kirghiz (cyrillique)           | `ky`        |
-| Cantonais (traditionnel)     | `yue`       | Lao                            | `lo`        | Catalan                        | `ca`        | Letton                         | `lv`        |
-| Chinois (littéraire)         | `lzh`       | Lituanien                      | `lt`        | Chinois (simplifié)            | `zh-Hans`   | Lingala                        | `ln`        |
-| Chinois traditionnel         | `zh-Hant`   | Bas sorabe                     | `dsb`       | chiShona                       | `sn`        | Luganda                        | `lug`       |
-| Croate                       | `hr`        | Macédonien                     | `mk`        | Tchèque                        | `cs`        | Maithili                       | `mai`       |
-| Danois                       | `da`        | Malgache                       | `mg`        | Dari                           | `prs`       | Malais (latin)                 | `ms`        |
-| Maldivien                    | `dv`        | Malayalam                      | `ml`        | Dogri                          | `doi`       | Maltais                        | `mt`        |
-| Néerlandais                  | `nl`        | Maori                          | `mi`        | Anglais                        | `en`        | Marathi                        | `mr`        |
-| Estonien                     | `et`        | Mongole (cyrillique)           | `mn-Cyrl`   | Féroïen                        | `fo`        | Mongol (traditionnel)          | `mn-Mong`   |
-| Fidjien                      | `fj`        | Myanmar                        | `my`        | Filipino                       | `fil`       | Népalais                       | `ne`        |
-| Finnois                      | `fi`        | Norvégien                      | `nb`        | Français                       | `fr`        | Nyanja                         | `nya`       |
-| Français (Canada)            | `fr-ca`     | Odia                           | `or`        | Galicien                       | `gl`        | Pachto                         | `ps`        |
-| Géorgien                     | `ka`        | Persan                         | `fa`        | Allemand                       | `de`        | Polonais                       | `pl`        |
-| Grec                         | `el`        | Portugais (Brésil)             | `pt`        | Goudjrati                      | `gu`        | Portugais (Portugal)           | `pt-pt`     |
-| Créole haïtien               | `ht`        | Pendjabi                       | `pa`        | Hausa                          | `ha`        | Queretaro Otomi                | `otq`       |
-| Hébreu                       | `he`        | Roumain                        | `ro`        | Hindi                          | `hi`        | Rundi                          | `run`       |
-| Hmong daw (latin)            | `mww`       | Russe                          | `ru`        | Hongrois                       | `hu`        | Samoan (latin)                 | `sm`        |
-| Islandais                    | `is`        | Serbe (cyrillique)             | `sr-Cyrl`   | Igbo                           | `ig`        | Serbe (latin)                  | `sr-Latn`   |
-| Indonésien                   | `id`        | Sesotho                        | `st`        | Inuinnaqtun                    | `ikt`       | Sotho du Nord                  | `nso`       |
-| Inuktitut                    | `iu`        | Setswana                       | `tn`        | Inuktitut (Latin)              | `iu-Latn`   | Sindhi                         | `sd`        |
-| Irlandais                    | `ga`        | Cingalais                      | `si`        | Italien                        | `it`        | Slovaque                       | `sk`        |
-| Japonais                     | `ja`        | Slovène                        | `sl`        | Kannada                        | `kn`        | Somali (arabe)                 | `so`        |
-| Kashmiri                     | `ks`        | Espagnol                       | `es`        | Kazakh                         | `kk`        | Swahili (latin)                | `sw`        |
-| Khmer                        | `km`        | Suédois                        | `sv`        | Kinyarwanda                    | `rw`        | Tahitien                       | `ty`        |
-| Klingon                      | `tlh-Latn`  | Tamoul                         | `ta`        | Klingon (plqaD)                | `tlh-Piqd`  | Tatar (latin)                  | `tt`        |
-| Konkani                      | `gom`       | Télougou                       | `te`        | Coréen                         | `ko`        | Thaï                           | `th`        |
-| Kurde (central)              | `ku`        | Tibétain                       | `bo`        | Kurde (Nord)                   | `kmr`       | Tigrigna                       | `ti`        |
-| Kirghiz (cyrillique)         | `ky`        | Tonga                          | `to`        | Lao                            | `lo`        | Turc                           | `tr`        |
-| Letton                       | `lv`        | Turkmène (latin)               | `tk`        | Lituanien                      | `lt`        | Ukrainien                      | `uk`        |
-| Lingala                      | `ln`        | Haut sorabe                    | `hsb`       | Bas sorabe                     | `dsb`       | Ourdou                         | `ur`        |
-| Luganda                      | `lug`       | Ouïgour (arabe)                | `ug`        | Macédonien                     | `mk`        | Ouzbek (latin)                 | `uz`        |
-| Maithili                     | `mai`       | Vietnamien                     | `vi`        | Malgache                       | `mg`        | Gallois                        | `cy`        |
-| Malais (latin)               | `ms`        | Xhosa                          | `xh`        | Malayalam                      | `ml`        | Yoruba                         | `yo`        |
-| Maltais                      | `mt`        | Maori                          | `mi`        | Malayalam                      | `ml`        | Zoulou                         | `zu`        |
+| Langue                       | Code langue | Langue                         | Code langue | Langue                         | Code langue |
+|------------------------------|:-----------:|--------------------------------|:-----------:|--------------------------------|:-----------:|
+| Afrikaans                    | `af`        | Hongrois                       | `hu`        | Polonais                       | `pl`        |
+| Albanais                     | `sq`        | Islandais                      | `is`        | Portugais (Brésil)             | `pt`        |
+| Amharique                    | `am`        | Igbo                           | `ig`        | Portugais (Portugal)           | `pt-pt`     |
+| Arabe                        | `ar`        | Indonésien                     | `id`        | Pendjabi                       | `pa`        |
+| Arménien                     | `hy`        | Inuinnaqtun                    | `ikt`       | Queretaro Otomi                | `otq`       |
+| Assamais                     | `as`        | Inuktitut                      | `iu`        | Roumain                        | `ro`        |
+| Azerbaïdjanais (Latin)       | `az`        | Inuktitut (Latin)              | `iu-Latn`   | Rundi                          | `run`       |
+| Bangla                       | `bn`        | Irlandais                      | `ga`        | Russe                          | `ru`        |
+| Bashkir                      | `ba`        | Italien                        | `it`        | Samoan (latin)                 | `sm`        |
+| Basque                       | `eu`        | Japonais                       | `ja`        | Serbe (cyrillique)             | `sr-Cyrl`   |
+| Bhojpouri                    | `bho`       | Kannada                        | `kn`        | Serbe (latin)                  | `sr-Latn`   |
+| Bodo                         | `brx`       | Kashmiri                       | `ks`        | Sesotho                        | `st`        |
+| Bosniaque (latin)            | `bs`        | Kazakh                         | `kk`        | Sotho du Nord                  | `nso`       |
+| Bulgare                      | `bg`        | Khmer                          | `km`        | Setswana                       | `tn`        |
+| Cantonais (traditionnel)     | `yue`       | Kinyarwanda                    | `rw`        | Sindhi                         | `sd`        |
+| Catalan                      | `ca`        | Klingon                        | `tlh-Latn`  | Cingalais                      | `si`        |
+| Chinois (littéraire)         | `lzh`       | Klingon (plqaD)                | `tlh-Piqd`  | Slovaque                       | `sk`        |
+| Chinois (simplifié)          | `zh-Hans`   | Konkani                        | `gom`       | Slovène                        | `sl`        |
+| Chinois traditionnel         | `zh-Hant`   | Coréen                         | `ko`        | Somali (arabe)                 | `so`        |
+| chiShona                     | `sn`        | Kurde (central)                | `ku`        | Espagnol                       | `es`        |
+| Croate                       | `hr`        | Kurde (Nord)                   | `kmr`       | Swahili (latin)                | `sw`        |
+| Tchèque                      | `cs`        | Kirghiz (cyrillique)           | `ky`        | Suédois                        | `sv`        |
+| Danois                       | `da`        | Lao                            | `lo`        | Tahitien                       | `ty`        |
+| Dari                         | `prs`       | Letton                         | `lv`        | Tamoul                         | `ta`        |
+| Maldivien                    | `dv`        | Lituanien                      | `lt`        | Tatar (latin)                  | `tt`        |
+| Dogri                        | `doi`       | Lingala                        | `ln`        | Télougou                       | `te`        |
+| Néerlandais                  | `nl`        | Bas sorabe                     | `dsb`       | Thaï                           | `th`        |
+| Anglais                      | `en`        | Luganda                        | `lug`       | Tibétain                       | `bo`        |
+| Estonien                     | `et`        | Macédonien                     | `mk`        | Tigrigna                       | `ti`        |
+| Féroïen                      | `fo`        | Maithili                       | `mai`       | Tonga                          | `to`        |
+| Fidjien                      | `fj`        | Malgache                       | `mg`        | Turc                           | `tr`        |
+| Filipino                     | `fil`       | Malais (latin)                 | `ms`        | Turkmène (latin)               | `tk`        |
+| Finnois                      | `fi`        | Malayalam                      | `ml`        | Ukrainien                      | `uk`        |
+| Français                     | `fr`        | Maltais                        | `mt`        | Haut sorabe                    | `hsb`       |
+| Français (Canada)            | `fr-ca`     | Maori                          | `mi`        | Ourdou                         | `ur`        |
+| Galicien                     | `gl`        | Marathi                        | `mr`        | Ouïgour (arabe)                | `ug`        |
+| Géorgien                     | `ka`        | Mongole (cyrillique)           | `mn-Cyrl`   | Ouzbek (latin)                 | `uz`        |
+| Allemand                     | `de`        | Mongol (traditionnel)          | `mn-Mong`   | Vietnamien                     | `vi`        |
+| Grec                         | `el`        | Myanmar                        | `my`        | Gallois                        | `cy`        |
+| Goudjrati                    | `gu`        | Népalais                       | `ne`        | Xhosa                          | `xh`        |
+| Créole haïtien               | `ht`        | Norvégien                      | `nb`        | Yoruba                         | `yo`        |
+| Hausa                        | `ha`        | Nyanja                         | `nya`       | Yucatec Maya                   | `yua`       |
+| Hébreu                       | `he`        | Odia                           | `or`        | Zoulou                         | `zu`        |
+| Hindi                        | `hi`        | Pachto                         | `ps`        |                                |             |
+| Hmong daw (latin)            | `mww`       | Persan                         | `fa`        |                                |             |
+
 
