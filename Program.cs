@@ -2,7 +2,9 @@
 using Newtonsoft.Json;
 using DotNetEnv;
 using Excel = Microsoft.Office.Interop.Excel;
-using static Program;
+using Microsoft.Office.Interop.Excel;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 class Program
 {
@@ -45,88 +47,45 @@ class Program
         public int[] TransSentLen { get; set; }
     }
 
+    // Importer les fonctions API Windows nécessaires
+    [DllImport("Kernel32")]
+    private static extern bool SetConsoleCtrlHandler(EventHandler handler, bool add);
+
+    // Définir le type de délégué pour le gestionnaire d'événements
+    private delegate bool EventHandler(CtrlType sig);
+
+    // Définir les types d'événements de fermeture de la console
+    private enum CtrlType
+    {
+        CTRL_C_EVENT = 0,
+        CTRL_CLOSE_EVENT = 2,
+        CTRL_LOGOFF_EVENT = 5,
+        CTRL_SHUTDOWN_EVENT = 6
+    }
+
+    static Application application;
+    static Workbook workbook;
+    static Worksheet worksheet;
+    static Excel.Range firstCellOfReferenceColumn;
+
     static async Task Main()
     {
-        // Vérifier si le fichier .env existe dans l'environnement d'exécution actuel
-        if (File.Exists(".env"))
-        {
-            // S'il existe, charger les variables d'environnement depuis le fichier .env
-            Env.Load();
-        }
-        else
-        {
-            // S'il n'existe pas, charger les variables d'environnement depuis le fichier .env du dossier racine
-            Env.Load("../../../.env");
-        }
+        LoadEnvironmentVariables();
 
-        // Restauration de la couleur d'origine
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.Write(" ___   _  ___  _______  ___      _______  __   __  _______  _______ \n|   | | ||   ||       ||   |    |   _   ||  | |  ||  _    ||       |\n|   |_| ||   ||    _  ||   |    |  |_|  ||  |_|  || | |   ||___    |\n|      _||   ||   |_| ||   |    |       ||       || | |   | ___|   |\n|     |_ |   ||    ___||   |___ |       ||_     _|| |_|   ||___    |\n|    _  ||   ||   |    |       ||   _   |  |   |  |       | ___|   |\n|___| |_||___||___|    |_______||__| |__|  |___|  |_______||_______|\n");
-        Console.Write("\nIf you need help formatting your Excel file to translate or using Excel Azure AI Translator, visit the documentation available at the following address: https://github.com/Kiplay03/excel-azure-ai-translator\n");
+        // Ajouter le gestionnaire d'événements pour la fermeture de la console
+        SetConsoleCtrlHandler(ConsoleCtrlHandler, true);
 
+        GenerateConsoleCopyright();
 
-        Console.WriteLine("\nWhat is the path of the Excel file you want to act on with Excel Azure AI Translator?");
-        string specifiedFilePath = Console.ReadLine();
+        string specifiedFilePath = GenerateConsoleQuestion("What is the path of the Excel file you want to act on with Excel Azure AI Translator?");
+        CheckFilePathAndType(specifiedFilePath);
+        OpenExcelWorkbook(specifiedFilePath);
 
-        // Vérifier si le fichier existe sans ajouter l'extension
-        if (!File.Exists(specifiedFilePath))
-        {
-            // Ajouter l'extension ".xlsx" et vérifier à nouveau
-            specifiedFilePath += ".xlsx";
-            if (!File.Exists(specifiedFilePath))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("The specified file path doesn't exist. Please try again specifying a valid Excel file path.");
-                return;
-            }
-        }
+        string specifiedWorksheet = GenerateConsoleQuestion("Which worksheet do you want to work on?");
+        OpenExcelWorksheet(specifiedWorksheet);
 
-        // Vérifier si le fichier a une extension valide
-        if (!Path.GetExtension(specifiedFilePath).Equals(".xlsx", StringComparison.OrdinalIgnoreCase))
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The file specified isn't an Excel file. Please try again specifying a valid Excel file path.");
-            return;
-        }
-
-        // Create an instance of Excel application
-        Excel.Application excelApp = new Excel.Application();
-
-        // Open the Excel workbook
-        Excel.Workbook workbook = null;
-        try
-        {
-            workbook = excelApp.Workbooks.Open(specifiedFilePath);
-        }
-        catch (Exception ex)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("An error occurred while opening the Excel workbook. Please make sure the file path is correct and try again.");
-            workbook.Close(false);
-            excelApp.Quit();
-            return;
-        }
-
-        Console.WriteLine("\nWhich worksheet do you want to work on?");
-        string specifiedWorksheet = Console.ReadLine();
-
-        // Get the specified worksheet
-        Excel.Worksheet worksheet = null;
-        if (workbook != null)
-        {
-            try
-            {
-                worksheet = (Excel.Worksheet)workbook.Sheets[specifiedWorksheet];
-            }
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("The specified worksheet doesn't exist. Please try again specifying a valid worksheet name.");
-                workbook.Close(false);
-                excelApp.Quit();
-                return;
-            }
-        }
+        string specifiedReferenceColumn = GenerateConsoleQuestion("Which reference column containing the text(s) to be translated would you like to use?");
+        CheckReferenceColumnFormatting(specifiedReferenceColumn);
 
         List<(string, string)> supportedLanguages = new List<(string, string)>
         {
@@ -164,40 +123,12 @@ class Program
             ("Yucatec Maya", "yua"), ("Zoulou", "zu")
         };
 
-        Console.WriteLine("\nWhich reference column (letter) containing the text(s) to be translated would you like to use?");
-        string specifiedReferenceColumn = Console.ReadLine();
-
-        Excel.Range firstCellOfReferenceColumn = null;
-        string firstCellOfReferenceColumnValue = null;
-        try
-        {
-            firstCellOfReferenceColumn = (Excel.Range)worksheet.Cells[1, specifiedReferenceColumn];
-            firstCellOfReferenceColumnValue = firstCellOfReferenceColumn.Value;
-        }
-        catch (Exception)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The specified reference column isn't valid. Please try again specifying a valid reference column letter.");
-            workbook.Close(false);
-            excelApp.Quit();
-            return;
-        }
-
-        if (firstCellOfReferenceColumnValue == null)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The specified reference column isn't formatted correctly. Please try again with a correctly formatted reference column.");
-            workbook.Close(false);
-            excelApp.Quit();
-            return;
-        }
-
         // Initialiser la variable referenceColumnLanguageCode
         string referenceColumnLanguage = null;
         string referenceColumnLanguageCode = null;
 
         // Convertir la valeur de firstCellOfReferenceColumn en minuscules pour la comparaison
-        firstCellOfReferenceColumnValue = firstCellOfReferenceColumnValue.ToLower();
+        string firstCellOfReferenceColumnValue = firstCellOfReferenceColumn.Value.ToLower();
 
         // Vérifier si la valeur de firstCellOfReferenceColumn correspond à une langue ou à un code langue
         bool isValidFromLanguage = false;
@@ -210,27 +141,27 @@ class Program
                 firstCellOfReferenceColumnValue.Equals(lowercaseLanguageCode))
             {
                 isValidFromLanguage = true;
-                firstCellOfReferenceColumn.Value = language;
                 referenceColumnLanguage = language;
                 referenceColumnLanguageCode = languageCode;
                 break;
             }
         }
 
+        firstCellOfReferenceColumn.Value = referenceColumnLanguage;
+
         if (!isValidFromLanguage)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("The first cell of the specified reference column doesn't contain a valid language or language code. Please try again with a correctly formatted reference column.");
             workbook.Close(false);
-            excelApp.Quit();
             return;
         }
 
         Console.WriteLine("\nInto which language (language or language code) do you want to translate the cells of the specified reference column?");
         string specifiedDestinationLanguage = Console.ReadLine();
 
-        string destinationLanguage = null;
-        string destinationLanguageCode = null;
+        string destinationColumnLanguage = null;
+        string destinationColumnLanguageCode = null;
 
         // Convertir la valeur de firstCellOfReferenceColumn en minuscules pour la comparaison
         specifiedDestinationLanguage = specifiedDestinationLanguage.ToLower();
@@ -246,8 +177,8 @@ class Program
                 specifiedDestinationLanguage.Equals(lowercaseLanguageCode))
             {
                 isValidDestinationLanguage = true;
-                destinationLanguage = language;
-                destinationLanguageCode = languageCode;
+                destinationColumnLanguage = language;
+                destinationColumnLanguageCode = languageCode;
                 break;
             }
         }
@@ -257,9 +188,22 @@ class Program
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("The specified destination language isn't a valid language or language code. Please try again specifying a valid destination language or language code.");
             workbook.Close(false);
-            excelApp.Quit();
             return;
         }
+
+        int destinationColumn = GetColumnNumber(specifiedReferenceColumn) + 1;
+
+        // Insérer la colonne à droite de la colonne de référence
+        Excel.Range destinationColumnPosition = worksheet.Columns[destinationColumn];
+        destinationColumnPosition.Insert();
+
+        // Obtenir la première cellule de la colonne de destination et y mettre la valeur
+        Excel.Range firstCellOfDestinationColumn = (Excel.Range)worksheet.Cells[1, destinationColumn];
+
+        firstCellOfDestinationColumn.Value = destinationColumnLanguage;
+
+        workbook.Save();
+        workbook.Close(false);
 
         try
         {
@@ -317,14 +261,218 @@ class Program
         {
             // Fermer le classeur Excel et quitter l'application Excel
             workbook.Close(true);
-            excelApp.Quit();
 
             // Libérer les ressources COM
             System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
             System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
         }
     }
+
+    // Méthode pour charger les variables d'environnement en fonction de l'environnement d'exécution
+    static void LoadEnvironmentVariables()
+    {
+        // Vérifier si le fichier .env existe dans l'environnement d'exécution actuel
+        if (File.Exists(".env"))
+        {
+            // S'il existe, charger les variables d'environnement depuis le fichier .env
+            Env.Load();
+        }
+        else
+        {
+            // S'il n'existe pas, charger les variables d'environnement depuis le fichier .env du dossier racine
+            Env.Load("../../../.env");
+        }
+    }
+
+    // Méthode appelée lorsqu'un événement de fermeture de la console est détecté
+    private static bool ConsoleCtrlHandler(CtrlType sig)
+    {
+        // Si un classeur Excel est lancé
+        if (workbook != null)
+        {
+            // Le fermer sans enregistrer
+            workbook.Close(false);
+        }
+
+        // Si l'application Excel est lancée
+        if (application != null)
+        {
+            // La fermer
+            application.Quit();
+
+            // Tuer le processus Excel de manière forcée
+            foreach (Process process in Process.GetProcessesByName("Excel"))
+            {
+                process.Kill();
+            }
+        }
+
+        // Indiquer que l'événement a été traité et permettre à l'application de se fermer
+        return true;
+    }
+
+    // Méthode pour générer la section Copyright dans la console
+    static void GenerateConsoleCopyright()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(" ___   _  ___  _______  ___      _______  __   __  _______  _______ ");
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("|   | | ||   ||       ||   |    |   _   ||  | |  ||  _    ||       |");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("|   |_| ||   ||    _  ||   |    |  |_|  ||  |_|  || | |   ||___    |");
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("|      _||   ||   |_| ||   |    |       ||       || | |   | ___|   |");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("|     |_ |   ||    ___||   |___ |       ||_     _|| |_|   ||___    |");
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("|    _  ||   ||   |    |       ||   _   |  |   |  |       | ___|   |");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("|___| |_||___||___|    |_______||__| |__|  |___|  |_______||_______|");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("\nIf you need help formatting your Excel file to translate or using Excel Azure AI Translator, visit the documentation available at the following address: https://github.com/Kiplay03/excel-azure-ai-translator\n");
+    }
+
+    // Méthode pour générer une question dans la console et retourner la réponse de l'utilisateur 
+    static string GenerateConsoleQuestion(string questionContent)
+    {
+        // Poser la question dans la console avec le contenu spécifié 
+        Console.WriteLine("\n" + questionContent);
+        // Enregister dans une variable la réponse de l'utilisateur
+        string userResponse = Console.ReadLine();
+        // Retourner la variable contenant la réponse
+        return userResponse;
+    }
+
+    // Méthode pour générer une erreur dans la console avec un message spécifique, fermer un classeur Excel s'il est lancé, arrêter l'application Excel si elle est lancée et arrêter l'exécution du programme
+    static void GenerateConsoleError(string errorContent)
+    {
+        // Mettre la couleur du texte de la console en rouge
+        Console.ForegroundColor = ConsoleColor.Red;
+        // Retourner dans la console le message d'erreur
+        Console.WriteLine(errorContent);
+
+        // Si un classeur Excel est lancé
+        if (workbook != null)
+        {
+            // Le fermer sans enregistrer
+            workbook.Close(false);
+        }
+
+        // Si l'application Excel est lancée
+        if (application != null)
+        {
+            // La fermer
+            application.Quit();
+
+            // Tuer le processus Excel de manière forcée
+            foreach (Process process in Process.GetProcessesByName("Excel"))
+            {
+                process.Kill();
+            }
+        }
+
+        // Arrêter l'exécution du programme
+        Environment.Exit(1);
+    }
+
+    // Méthode pour vérifier si le chemin d'accès fourni par l'utilisateur existe et si le fichier vers lequel il renvoie est un fichier Excel
+    static void CheckFilePathAndType(string specifiedFilePath)
+    {
+        // Vérifier si le fichier existe sans ajouter l'extension
+        if (!File.Exists(specifiedFilePath))
+        {
+            // Ajouter l'extension Excel et vérifier de nouveau
+            specifiedFilePath += ".xlsx";
+            if (!File.Exists(specifiedFilePath))
+            {
+                // S'il n'existe pas, générer une erreur
+                GenerateConsoleError("The specified file path doesn't exist or the specified file isn't an Excel file. Please try again specifying a valid Excel file path.");
+            }
+        }
+
+        // Vérifier si le fichier a une extension Excel valide
+        if (!Path.GetExtension(specifiedFilePath).Equals(".xlsx", StringComparison.OrdinalIgnoreCase))
+        {
+            // S'il n'en a pas, générer une erreur
+            GenerateConsoleError("The specified file isn't an Excel file. Please try again specifying a valid Excel file path.");
+        }
+    }
+
+    // Méthode pour tenter d'ouvrir le classeur Excel fourni par l'utilisateur et retourner une instance de ce dernier
+    static void OpenExcelWorkbook(string specifiedFilePath)
+    {
+        // Définir dans la variable initialisée une instance de l'application Excel 
+        application = new Application();
+
+        // Tenter d'ouvrir le classeur Excel fourni par l'utilisateur
+        try
+        {
+            // Définir dans la variable initialisée le classeur Excel fourni par l'utilisateur
+            workbook = application.Workbooks.Open(specifiedFilePath);
+        }
+        catch
+        {
+            // Si une erreur se produit durant l'ouverture, générer une erreur
+            GenerateConsoleError("An error occurred while opening the Excel workbook. Please make sure the file path is correct and try again.");
+        }
+    }
+
+    // Méthode pour tenter d'ouvrir la feuille de travail Excel fournie par l'utilisateur
+    static void OpenExcelWorksheet(string specifiedWorksheet)
+    {
+        // Tenter d'ouvrir la feuille de travail Excel fournie par l'utilisateur
+        try
+        {
+            // Définir dans la variable initialisée la feuille de travail Excel fournie par l'utilisateur
+            worksheet = (Excel.Worksheet)workbook.Sheets[specifiedWorksheet];
+        }
+        catch
+        {
+            // Si une erreur se produit durant l'ouverture, générer une erreur
+            GenerateConsoleError("The specified worksheet doesn't exist. Please try again specifying a valid worksheet name.");
+        }
+    }
+
+    // Méthode pour vérifier l'existance de la colonne de référence fournie par l'utilisateur et son formattage
+    static void CheckReferenceColumnFormatting(string specifiedReferenceColumn)
+    {
+        // Tenter de récupérer la première cellule de la colonne de référence fournie par l'utilisateur
+        try
+        {
+            // Récupérer la première cellule de la colonne de référence en convertisant le ou les lettre(s) l'identifiant en nombre
+            firstCellOfReferenceColumn = (Excel.Range)worksheet.Cells[1, GetColumnNumber(specifiedReferenceColumn)];
+        }
+        catch
+        {
+            // Si une erreur se produit durant la récupération, générer une erreur
+            GenerateConsoleError("The specified reference column isn't valid. Please try again specifying a valid reference column letter.");
+        }
+
+        // Vérifier si la première cellule de la colonne de référence est vide
+        if (firstCellOfReferenceColumn.Value == null)
+        {
+            // Si elle est vide, générer une erreur
+            GenerateConsoleError("The first cell of the specified reference column is empty. Please try again with a correctly formatted reference column.");
+        }
+    }
+
+    // Méthode pour obtenir le numéro d'une colonne Excel à partir de la lettre ou de la combinaison de lettres fournie par l'utilisateur
+    static int GetColumnNumber(string specifiedColumn)
+    {
+        // Initialiser la variable pour accueillir le numéro de la colonne 
+        int columnNumber = 0;
+
+        // Parcourir chaque caractère de la chaîne de caractères spécifiée (en la convertissant en majuscules)
+        foreach (char c in specifiedColumn.ToUpper())
+        {
+            // Calculer le numéro de colonne en utilisant la formule basée sur la position de la lettre dans l'alphabet
+            columnNumber = columnNumber * 26 + (c - 'A' + 1);
+        }
+
+        // Retourner le numéro de la colonne
+        return columnNumber;
+    }
+
     static async Task<string> TranslateCell(string text, string fromLanguage, string firstLanguage, string secondLanguage, string thirdLanguage)
     {
         string secondLanguageParse = null;
