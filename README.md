@@ -48,8 +48,3 @@
 | Hébreu                       | `he`        | Odia                           | `or`        | Zoulou                         | `zu`        |
 | Hindi                        | `hi`        | Pachto                         | `ps`        |                                |             |
 | Hmong daw (latin)            | `mww`       | Persan                         | `fa`        |                                |             |
-<<<<<<< HEAD
-=======
-
-
->>>>>>> b6d6cab8135552d4d4693764908b9c82c3c358b5
