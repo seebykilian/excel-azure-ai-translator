@@ -14,7 +14,7 @@ The Excel Azure AI Translator project has been designed to massively translate t
 - [What languages ​​does the program support?](#supportedLanguages)
 - [How to install the program?](#install)
 - [How to format the Excel file to provide to the program?](#formatExcelFile)
-- [How to start the program?](#start)
+- [How to launch the program?](#launch)
 - [How to improve translation accuracy with Custom Translator?](#improveAccuracyWithCustomTranslator)
 
 ## Supported languages <a name="supportedLanguages"></a>
@@ -112,7 +112,13 @@ Formatting the Excel file is also relatively simple. All you have to do is choos
 ![ColumnWithLanguage](https://i.postimg.cc/SNc4c693/Column-With-Language.png)
 ![ColumnWithLanguageCode](https://i.postimg.cc/2SmDG1F6/Column-With-Language-Code.png)
 
-## Start <a name="start"></a>
+## Launch <a name="launch"></a>
+
+Before you can launch the program, you need to check that .NET is installed on your computer and at the correct version, here `8.0`.
+
+If .NET is installed correctly on your computer, run the `Excel Azure AI Translator.bat` file in the project directory.
+
+![CommandPrompt](https://i.postimg.cc/h4bg82Lx/Translation-Result.png)
 
 ![TranslationResult](https://i.postimg.cc/h4bg82Lx/Translation-Result.png)
  
