@@ -5,7 +5,7 @@
 [![Nug](https://img.shields.io/badge/Newtonsoft.Json-13.0.3-Module)](https://www.nuget.org/packages/Newtonsoft.Json/13.0.3)
 [![Nug](https://img.shields.io/badge/DotNetEnv-3.0.0-Module)](https://www.nuget.org/packages/DotNetEnv/3.0.0)
 [![Api](https://img.shields.io/badge/Azure%20AI%20Translator-3.0-Api?color=yellow)](https://learn.microsoft.com/fr-fr/azure/ai-services/translator/)
-[![Copyright](https://img.shields.io/badge/Cr%C3%A9ateur-Kiplay03-Copyright?color=red)](https://githhub.com/Kiplay03)
+[![Copyright](https://img.shields.io/badge/Cr%C3%A9ateur-Kiplay03-Copyright?color=red)](https://github.com/Kiplay03)
 
 The Excel Azure AI Translator project has been designed to massively translate the cells of an Excel column from one language to another in a fully automated way. I opted to use [Azure's AI-based translation service](https://azure.microsoft.com/en-us/products/ai-services/ai-translator) because of its free plan offering a monthly translation allowance of 2 million characters.
 
