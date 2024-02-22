@@ -111,6 +111,7 @@ Formatting the Excel file is also relatively simple. All you have to do is choos
 
 ![ColumnWithLanguage](https://i.postimg.cc/SNc4c693/Column-With-Language.png)
 ![ColumnWithLanguageCode](https://i.postimg.cc/2SmDG1F6/Column-With-Language-Code.png)
+*Your formatted Excel file should look like this*
 
 ## Launch <a name="launch"></a>
 
@@ -121,7 +122,16 @@ Before you can launch the program, you need to check that .NET is installed on y
 ![CommandPrompt](https://i.postimg.cc/DZS7FGmg/Command-Prompt.png)
 *A Command Prompt window with this visual should open*
 
+- Second, you must provide the path to the Excel file you want to act on. Be sure to [format your Excel file](#formatExcelFile) beforehand.
+
+- Third, you must provide the name of the worksheet you want to act on.
+
+- Fourth, you must provide the letter(s) identifying the column in which the text to be translated is located and which you have previously [formatted](#formatExcelFile).
+
+- Finally, you must provide a [supported language or language code](#supportedLanguages) into which the text is to be translated.
+
 ![TranslationResult](https://i.postimg.cc/h4bg82Lx/Translation-Result.png)
+*The result in your Excel file should look like this*
  
 ## Improve accuracy with Custom Translator <a name="improveAccuracyWithCustomTranslator"></a>
 
