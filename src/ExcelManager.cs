@@ -254,6 +254,11 @@ namespace ExcelAzureAiTranslator
                         ConsoleManager.Task("Translation in progress from " + referenceLanguage + " to " + destinationLanguage + ": " + totalCellsTranslated + " cell(s) translated", true);
                     }
                 }
+
+                // Automatically adjusts the width of the reference column based on its content
+                worksheet?.Column(referenceColumnIndex).AutoFit();
+                // Automatically adjusts the width of the destination column based on its content
+                worksheet?.Column(destinationColumnIndex).AutoFit();
             }
             catch
             {

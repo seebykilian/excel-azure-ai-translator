@@ -1,17 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Defines project properties -->
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Excel_Azure_AI_Translator</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType> <!-- Specifies the output type as executable -->
+    <TargetFramework>net8.0</TargetFramework> <!-- Specifies the target framework version -->
+    <RootNamespace>Excel_Azure_AI_Translator</RootNamespace> <!-- Specifies the root namespace for the project -->
+    <ImplicitUsings>enable</ImplicitUsings> <!-- Enables implicit usings -->
+    <Nullable>enable</Nullable> <!-- Enables nullable reference types -->
   </PropertyGroup>
 
+  <!-- Defines project dependencies -->
   <ItemGroup>
-    <PackageReference Include="DotNetEnv" Version="3.0.0" />
-    <PackageReference Include="EPPlus" Version="7.0.9" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="DotNetEnv" Version="3.0.0" /> <!-- Includes DotNetEnv package -->
+    <PackageReference Include="EPPlus" Version="7.0.9" /> <!-- Includes EPPlus package -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" /> <!-- Includes Newtonsoft.Json package -->
   </ItemGroup>
 
 </Project>

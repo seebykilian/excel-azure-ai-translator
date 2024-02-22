@@ -114,7 +114,7 @@ namespace ExcelAzureAiTranslator
                     Console.Write(new string(' ', Console.WindowWidth));
                     Console.SetCursorPosition(0, Console.CursorTop - 1);
                     // Print the new task message
-                    Console.WriteLine("\n" + taskContent);
+                    Console.WriteLine(taskContent);
                 }
                 else
                 {

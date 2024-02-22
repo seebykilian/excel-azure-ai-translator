@@ -1,4 +1,6 @@
+using OfficeOpenXml.Style;
 using System.Collections.Generic;
+using System.Data.Common;
 
 namespace ExcelAzureAiTranslator
 {
@@ -51,8 +53,13 @@ namespace ExcelAzureAiTranslator
                 {
                     // Set the value of the first cell of the reference column to the translation reference language
                     ExcelManager.firstCellOfReferenceColumn.Value = ExcelManager.referenceLanguage;
+                    // Set the horizontal alignment to center for the first cell of the translation reference column
+                    ExcelManager.firstCellOfReferenceColumn.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
                     // Set the value of the first cell of the destination column to the translation destination language
                     ExcelManager.firstCellOfDestinationColumn.Value = ExcelManager.destinationLanguage;
+                    // Set the horizontal alignment to center for the first cell of the translation destination column
+                    ExcelManager.firstCellOfDestinationColumn.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                 }
 
                 // Translate the cells of the reference column to the destination column
