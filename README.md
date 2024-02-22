@@ -113,6 +113,8 @@ Formatting the Excel file is also relatively simple. All you have to do is choos
 ![ColumnWithLanguageCode](https://i.postimg.cc/2SmDG1F6/Column-With-Language-Code.png)
 
 ## Start <a name="start"></a>
+
+![TranslationResult](https://i.postimg.cc/h4bg82Lx/Translation-Result.png)
  
 ## Improve accuracy with Custom Translator <a name="improveAccuracyWithCustomTranslator"></a>
 
