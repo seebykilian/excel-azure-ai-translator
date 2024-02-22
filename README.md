@@ -118,7 +118,7 @@ Before you can launch the program, you need to check that .NET is installed on y
 
 If .NET is installed correctly on your computer, run the `Excel Azure AI Translator.bat` file in the project directory.
 
-![CommandPrompt](https://i.postimg.cc/h4bg82Lx/Translation-Result.png)
+![CommandPrompt](https://i.postimg.cc/DZS7FGmg/Command-Prompt.png)
 
 ![TranslationResult](https://i.postimg.cc/h4bg82Lx/Translation-Result.png)
  
