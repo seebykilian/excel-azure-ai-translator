@@ -107,6 +107,8 @@ azureApiRegion="YOUR_AZURE_API_REGION" # Specify the region associated with the 
 
 ## Format Excel file <a name="formatExcelFile"></a>
 
+Formatting the Excel file is also relatively simple. All you have to do is choose a column from a worksheet and put in the first cell of that column a valid language or language code as in the example above.
+
 ![ColumnWithLanguage](https://i.postimg.cc/SNc4c693/Column-With-Language.png)
 ![ColumnWithLanguageCode](https://i.postimg.cc/2SmDG1F6/Column-With-Language-Code.png)
 
