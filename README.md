@@ -109,8 +109,8 @@ azureApiRegion="YOUR_AZURE_API_REGION" # Specify the region associated with the 
 
 Formatting the Excel file is also relatively simple. All you have to do is choose a column from a worksheet and put in the first cell of that column a [supported language or language code](#supportedLanguages) as in the example below.
 
-<center>![ColumnWithLanguage](https://i.postimg.cc/SNc4c693/Column-With-Language.png)
-![ColumnWithLanguageCode](https://i.postimg.cc/2SmDG1F6/Column-With-Language-Code.png)</center>
+![ColumnWithLanguage](https://i.postimg.cc/SNc4c693/Column-With-Language.png)
+![ColumnWithLanguageCode](https://i.postimg.cc/2SmDG1F6/Column-With-Language-Code.png)
 
 ## Launch <a name="launch"></a>
 
@@ -119,7 +119,7 @@ Before you can launch the program, you need to check that .NET is installed on y
 - First, run the `Excel Azure AI Translator.bat` file in the project directory.
 
 ![CommandPrompt](https://i.postimg.cc/DZS7FGmg/Command-Prompt.png)
-<center>*A Command Prompt window with this visual should open*</center>
+*A Command Prompt window with this visual should open*
 
 ![TranslationResult](https://i.postimg.cc/h4bg82Lx/Translation-Result.png)
  
