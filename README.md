@@ -1,4 +1,4 @@
-# Excel Azure AI Translator
+# Excel Azure AI Translator <a name="header"></a>
 
 [![Language](https://img.shields.io/badge/.NET-8.0.101-Language?color=blue)](https://dotnet.microsoft.com)
 [![Nug](https://img.shields.io/badge/EPPlus-7.0.9-Module)](https://www.nuget.org/packages/EPPlus/7.0.9)
@@ -114,9 +114,9 @@ Formatting the Excel file is also relatively simple. All you have to do is choos
 
 ## Launch <a name="launch"></a>
 
-Before you can launch the program, you need to check that .NET is installed on your computer and at the correct version, here `8.0`.
+Before you can launch the program, you need to check that .NET is installed on your computer and at the correct version, which you can find in the list of dependencies in the [documentation header](#header).
 
-If .NET is installed correctly on your computer, run the `Excel Azure AI Translator.bat` file in the project directory.
+- First, run the `Excel Azure AI Translator.bat` file in the project directory.
 
 ![CommandPrompt](https://i.postimg.cc/DZS7FGmg/Command-Prompt.png)
 
