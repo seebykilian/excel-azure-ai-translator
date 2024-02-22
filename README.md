@@ -107,8 +107,8 @@ azureApiRegion="YOUR_AZURE_API_REGION" # Specify the region associated with the 
 
 ## Format Excel file <a name="formatExcelFile"></a>
 
-![ColumnWithLanguage](https://postimg.cc/LJxLHRCn)
-![ColumnWithLanguageCode](https://postimg.cc/DWms0DH5)
+![ColumnWithLanguage](https://imgur.com/YSox6ET)
+![ColumnWithLanguageCode](https://imgur.com/zjZF6KA)
 
 ## Start <a name="start"></a>
  
