@@ -71,7 +71,8 @@ Below you can find the languages ​​supported by the program and their associ
 
 ## Install <a name="install"></a>
 
-To install this program it's very simple, you just have to open the command prompt, go to the directory where you want to install the program and follow the steps below. 
+Before you can install the program, you need to check that [Git](https://git-scm.com/downloads) is installed on your computer.
+If Git's intall, it's very simple, you just have to open the command prompt, go to the directory where you want to install the program and follow the steps below. 
 
 - First, download the project from GitHub
 
