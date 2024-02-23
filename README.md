@@ -97,7 +97,7 @@ type nul > .env
 code .env
 ```
 
-- Finally, put your Azure AI Translator API key and its associated region available at the [Azure Potal](https://portal.azure.com)
+- Finally, put your Azure AI Translator API key and its associated region available at the [Azure Portal](https://portal.azure.com)
 
 ```bash
 # Configure the connection identifiers for the Azure AI Translator API available at https://portal.azure.com
