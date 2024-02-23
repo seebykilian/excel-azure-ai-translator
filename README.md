@@ -71,7 +71,8 @@ Below you can find the languages ​​supported by the program and their associ
 
 ## Install <a name="install"></a>
 
-To install this program it's very simple, you just have to open the command prompt, go to the directory where you want to install the program and follow the steps below. 
+Before you can install the program, you need to check that [Git](https://git-scm.com/downloads) is installed on your computer.
+If Git's intall, it's very simple, you just have to open the command prompt, go to the directory where you want to install the program and follow the steps below. 
 
 - First, download the project from GitHub
 
@@ -138,7 +139,7 @@ Before you can launch the program, you need to check that [.NET](https://dotnet.
  
 ## Improve accuracy with Custom Translator <a name="improveAccuracyWithCustomTranslator"></a>
 
-Custom Translator is a feature of the Microsoft Translator service that enables businesses, application developers, and language service providers to create custom neural machine translation (NMT) systems without any machine learning skills. This feature can allow companies or individuals with fairly accurate translations that depend on a specific business need or vocabulary to learn artificial intelligence to identify these linguistic specificities and to translate and function. However, using this feature may require specific pricing, changes to this program, and lengthen the time of API calls. 
+Custom Translator is a feature of the Microsoft Translator service that enables businesses, application developers, and language service providers to create custom neural machine translation (NMT) systems without any machine learning skills. This feature can allow companies or individuals with fairly precise translations that depend on a business need or specific vocabulary to train artificial intelligence to identify these linguistic specificities and adjust the translations accordingly. However, using this feature may require specific pricing, changes to this program, and lengthen the time of API calls. 
 
 For more information, visit [here](https://learn.microsoft.com/fr-fr/azure/ai-services/translator/custom-translator/overview).
 
@@ -150,10 +151,10 @@ Your suggestions for improvements and new ideas are valuable, so don't hesitate 
 
 If you're a developer, your help is welcome! You can propose changes or bug fixes by submitting pull requests. Your expertise and contributions play a vital role in the continuous improvement of projects.
 
-In addition, I invite you to subscribe to my social networks to stay informed of the latest updates, new features and upcoming projects. Your support on social media is a valuable way to motivate me to continue my efforts as a creator.
+In addition, I invite you to subscribe to my [social networks](https://linktr.ee/kiplay03) to stay informed of the latest updates, new features and upcoming projects. Your support on social media is a valuable way to motivate me to continue my efforts as a creator.
 
-Finally, if you appreciate my work and would like to provide financial support, you can make a donation. Each contribution, regardless of its size, is greatly appreciated and allows us to continue to develop quality projects.
+Finally, if you appreciate my work and would like to provide financial support, you can make [a donation](https://streamlabs.com/kiplay03/tip). Each contribution, regardless of its size, is greatly appreciated and allows us to continue to develop quality projects.
 
 I would like to express my gratitude to all those who support my work. Every contribution, big or small, helps to move projects forward and provide ever better solutions. Your commitment and support are essential to help me grow as a creator and deliver achievements that enrich the community.
 
-Project created and developed by [Kiplay03](https://github.com/Kiplay03)
+Project created and developed by [Kiplay03](https://github.com/Kiplay03).
