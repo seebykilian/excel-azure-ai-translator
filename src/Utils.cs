@@ -1,5 +1,7 @@
 // Importing the NuGet package handling environment variables
 using DotNetEnv;
+using System.Diagnostics;
+using System.IO;
 
 namespace ExcelAzureAiTranslator
 {
@@ -84,5 +86,35 @@ namespace ExcelAzureAiTranslator
                 return new FileInfo("");
             }
         }
-    }
+
+        // Method for closing the program and opening the specified Excel file
+        public static void CloseAndOpenFile(FileInfo filePath)
+        {
+            try
+            {
+                // Print a message in the console to inform the user to click any key to close the program and open the specified Excel file
+                ConsoleManager.Message("Press any key to close Excel Azure AI Translator and open the specified Excel file...");
+
+                // Wait for the user to press any key
+                Console.ReadKey();
+
+                // Instantiate ProcessStartInfo
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                // Specify that the file should open with the default program associated with its type
+                startInfo.UseShellExecute = true;
+                // Specify that the file to open is the one provided by the user
+                startInfo.FileName = filePath.FullName;
+                // Open the specified Excel file
+                Process.Start(startInfo);
+
+                // Quit the program and close the command prompt window
+                Environment.Exit(0);
+            }
+            catch
+            {
+                // If an error occurs during program closing and specified Excel file opening, generate an error
+                ConsoleManager.Error("An error occurred while closing the program and opening the specified Excel file. Please try again.");
+            }
+        }
+    } 
 } 

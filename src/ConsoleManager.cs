@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace ExcelAzureAiTranslator
 {
     // Additional class of the program grouping the console methods
@@ -67,10 +69,14 @@ namespace ExcelAzureAiTranslator
                 Console.ForegroundColor = ConsoleColor.Red;
                 // Print the error message
                 Console.WriteLine("\n" + errorContent);
-                // Set console text color to gray
-                Console.ForegroundColor = ConsoleColor.Gray;
 
-                // Exit the program
+                // Print a message in the console to inform the user to click any key to close the program
+                Message("Press any key to close Excel Azure AI Translator...");
+                
+                // Wait for the user to press any key
+                Console.ReadKey();
+
+                // Exit the program and close the command prompt window
                 Environment.Exit(1);
             }
             catch
@@ -89,8 +95,6 @@ namespace ExcelAzureAiTranslator
                 Console.ForegroundColor = ConsoleColor.Green;
                 // Print the success message
                 Console.WriteLine("\n" + successContent);
-                // Set console text color to gray
-                Console.ForegroundColor = ConsoleColor.Gray;
             }
             catch
             {
@@ -112,7 +116,7 @@ namespace ExcelAzureAiTranslator
                     // Delete the last console message
                     Console.SetCursorPosition(0, Console.CursorTop - 1);
                     Console.Write(new string(' ', Console.WindowWidth));
-                    Console.SetCursorPosition(0, Console.CursorTop - 1);
+                    Console.SetCursorPosition(0, Console.CursorTop);
                     // Print the new task message
                     Console.WriteLine(taskContent);
                 }
@@ -128,6 +132,23 @@ namespace ExcelAzureAiTranslator
             {
                 // If an error occurs while task message generation or editing process, generate an error
                 Error("An error occurred while generating or editing a console task message. Please try again.");
+            }
+        }
+
+        // Method for generating a message in the console with a specific message
+        public static void Message(string messageContent)
+        {
+            try
+            {
+                // Set console text color to gray
+                Console.ForegroundColor = ConsoleColor.Gray;
+                // Print the message in the console with the specified content
+                Console.WriteLine("\n" + messageContent);
+            }
+            catch
+            {
+                // If an error occurs while message generation, generate an error
+                Error("An error occurred while generating a console message. Please try again.");
             }
         }
     }

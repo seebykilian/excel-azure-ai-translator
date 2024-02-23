@@ -1,6 +1,7 @@
 using OfficeOpenXml.Style;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Diagnostics;
 
 namespace ExcelAzureAiTranslator
 {
@@ -67,6 +68,9 @@ namespace ExcelAzureAiTranslator
 
                 // Save changes 
                 ExcelManager.SaveFile();
+
+                // Close the program and open the specified Excel file
+                Utils.CloseAndOpenFile(filePath);
             }
             catch
             {

@@ -282,5 +282,5 @@ namespace ExcelAzureAiTranslator
                 ConsoleManager.Error("An error occurred while saving changes. Please try again.");
             }
         }
-    }
+    } 
 }

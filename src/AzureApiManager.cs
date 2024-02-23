@@ -39,5 +39,5 @@ namespace ExcelAzureAiTranslator
                 return result[0].translations[0].text;
             }
         }
-    } 
+    }
 }
