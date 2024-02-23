@@ -116,7 +116,7 @@ Formatting the Excel file is also relatively simple. All you have to do is choos
 
 ## Launch <a name="launch"></a>
 
-Before you can launch the program, you need to check that .NET is installed on your computer and at the correct version, which you can find in the list of dependencies in the [documentation header](#header).
+Before you can launch the program, you need to check that [.NET](https://dotnet.microsoft.com) is installed on your computer and at the correct version, which you can find in the list of dependencies in the [documentation header](#header).
 
 - First, run the `Excel Azure AI Translator.bat` file in the project directory.
 
