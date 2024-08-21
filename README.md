@@ -77,7 +77,7 @@ If Git's intall, it's very simple, you just have to open the command prompt, go 
 - First, download the project from GitHub
 
 ```bash
-git clone https://github.com/Kiplay03/excel-azure-ai-translator.git
+git clone https://github.com/SeeByKilian/excel-azure-ai-translator.git
 ```
 
 - Second, open the previously downloaded GitHub project
@@ -121,7 +121,7 @@ Before you can launch the program, you need to check that [.NET](https://dotnet.
 
 - First, run the `Excel Azure AI Translator.bat` file in the project directory.
 
-![CommandPrompt](https://i.postimg.cc/DZS7FGmg/Command-Prompt.png)
+![CommandPrompt](https://i.postimg.cc/hPcL5Yyw/Command-Prompt.png)
 
 *A Command Prompt window with this visual should open*
 
