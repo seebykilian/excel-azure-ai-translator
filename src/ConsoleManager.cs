@@ -11,23 +11,23 @@ namespace ExcelAzureAiTranslator
             try
             {
                 // Print the ASCII art copyright message with the correct colors
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ___   _  ___  _______  ___      _______  __   __  _______  _______ ");
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("|   | | ||   ||       ||   |    |   _   ||  | |  ||  _    ||       |");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("|   |_| ||   ||    _  ||   |    |  |_|  ||  |_|  || | |   ||___    |");
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("|      _||   ||   |_| ||   |    |       ||       || | |   | ___|   |");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("|     |_ |   ||    ___||   |___ |       ||_     _|| |_|   ||___    |");
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("|    _  ||   ||   |    |       ||   _   |  |   |  |       | ___|   |");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("|___| |_||___||___|    |_______||__| |__|  |___|  |_______||_______|");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine(" _______  _______  _______  _______  __   __  ___   _  ___   ___      ___   _______  __    _ ");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine("|       ||       ||       ||  _    ||  | |  ||   | | ||   | |   |    |   | |   _   ||  |  | |");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("|  _____||    ___||    ___|| |_|   ||  |_|  ||   |_| ||   | |   |    |   | |  |_|  ||   |_| |");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine("| |_____ |   |___ |   |___ |       ||       ||      _||   | |   |    |   | |       ||       |");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("|_____  ||    ___||    ___||  _   | |_     _||     |_ |   | |   |___ |   | |       ||  _    |");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine(" _____| ||   |___ |   |___ | |_|   |  |   |  |    _  ||   | |       ||   | |   _   || | |   |");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("|_______||_______||_______||_______|  |___|  |___| |_||___| |_______||___| |__| |__||_|  |__|");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 // Print the documentation link message
-                Console.Write("\nIf you need help formatting your Excel file to translate or using Excel Azure AI Translator, visit the documentation available at the following address: https://github.com/Kiplay03/excel-azure-ai-translator\n");
+                Console.Write("\nIf you need help formatting your Excel file to translate or using Excel Azure AI Translator, visit the documentation available at the following address: https://github.com/SeeByKilian/excel-azure-ai-translator\n");
             }
             catch
             {
@@ -72,7 +72,7 @@ namespace ExcelAzureAiTranslator
 
                 // Print a message in the console to inform the user to click any key to close the program
                 Message("Press any key to close Excel Azure AI Translator...");
-                
+
                 // Wait for the user to press any key
                 Console.ReadKey();
 
