@@ -5,7 +5,7 @@
 [![Nug](https://img.shields.io/badge/Newtonsoft.Json-13.0.3-Module)](https://www.nuget.org/packages/Newtonsoft.Json/13.0.3)
 [![Nug](https://img.shields.io/badge/DotNetEnv-3.0.0-Module)](https://www.nuget.org/packages/DotNetEnv/3.0.0)
 [![Api](https://img.shields.io/badge/Azure%20AI%20Translator-3.0-Api?color=yellow)](https://learn.microsoft.com/fr-fr/azure/ai-services/translator/)
-[![Copyright](https://img.shields.io/badge/Cr%C3%A9ateur-Kiplay03-Copyright?color=red)](https://github.com/Kiplay03)
+[![Copyright](https://img.shields.io/badge/Cr%C3%A9ateur-SeeByKilian-Copyright?color=red)](https://github.com/SeeByKilian)
 
 The Excel Azure AI Translator project has been designed to massively translate the cells of an Excel column from one language to another in a fully automated way. I opted to use [Azure's AI-based translation service](https://azure.microsoft.com/en-us/products/ai-services/ai-translator) because of its free plan offering a monthly translation allowance of 2 million characters.
 
@@ -151,10 +151,10 @@ Your suggestions for improvements and new ideas are valuable, so don't hesitate 
 
 If you're a developer, your help is welcome! You can propose changes or bug fixes by submitting pull requests. Your expertise and contributions play a vital role in the continuous improvement of projects.
 
-In addition, I invite you to subscribe to my [social networks](https://linktr.ee/kiplay03) to stay informed of the latest updates, new features and upcoming projects. Your support on social media is a valuable way to motivate me to continue my efforts as a creator.
+In addition, I invite you to subscribe to my [social networks](https://linktr.ee/SeeByKilian) to stay informed of the latest updates, new features and upcoming projects. Your support on social media is a valuable way to motivate me to continue my efforts as a creator.
 
-Finally, if you appreciate my work and would like to provide financial support, you can make [a donation](https://streamlabs.com/kiplay03/tip). Each contribution, regardless of its size, is greatly appreciated and allows us to continue to develop quality projects.
+Finally, if you appreciate my work and would like to provide financial support, you can make [a donation](https://streamlabs.com/SeeByKilian/tip). Each contribution, regardless of its size, is greatly appreciated and allows us to continue to develop quality projects.
 
 I would like to express my gratitude to all those who support my work. Every contribution, big or small, helps to move projects forward and provide ever better solutions. Your commitment and support are essential to help me grow as a creator and deliver achievements that enrich the community.
 
-Project created and developed by [Kiplay03](https://github.com/Kiplay03).
+Project created and developed by [SeeByKilian](https://github.com/SeeByKilian).
