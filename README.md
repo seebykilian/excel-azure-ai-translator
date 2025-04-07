@@ -152,5 +152,6 @@ As a passionate creator, I’m always working to improve my projects and deliver
 - Stay connected: Follow me on social networks to get updates on new projects, releases, and behind-the-scenes content.
 - Support the work: If you want to support financially, you can make a donation. Every contribution, big or small, helps me keep building.
 
-Thanks to everyone who supports my work. Every action, from a suggestion to a share, plays a part in pushing these projects forward and growing this creative journey.
+Thanks to everyone who supports my work. Every action, from a suggestion to a share, plays a part in pushing these projects forward and growing this creative journey. 
+
 Project created and developed by [SeeByKilian](https://github.com/SeeByKilian).
