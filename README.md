@@ -102,8 +102,8 @@ code .env
 
 ```bash
 # Configure the connection identifiers for the Azure AI Translator API available at https://portal.azure.com
-azureApiKey="YOUR_AZURE_API_KEY" # Specify the Azure AI Translator API key to be used
-azureApiRegion="YOUR_AZURE_API_REGION" # Specify the region associated with the previously provided Azure AI Translator API key
+azureApiKey="" # Specify the Azure AI Translator API key to be used
+azureApiRegion="" # Specify the region associated with the previously provided Azure AI Translator API key
 ```
 
 ## Format Excel file <a name="formatExcelFile"></a>
@@ -113,7 +113,7 @@ Formatting the Excel file is also relatively simple. All you have to do is choos
 ![ColumnWithLanguage](https://i.postimg.cc/SNc4c693/Column-With-Language.png)
 ![ColumnWithLanguageCode](https://i.postimg.cc/2SmDG1F6/Column-With-Language-Code.png)
 
-*Your formatted Excel file should look like this*
+*Your formatted Excel file should look like this.*
 
 ## Launch <a name="launch"></a>
 
@@ -135,7 +135,7 @@ Before you can launch the program, you need to check that [.NET](https://dotnet.
 
 ![TranslationResult](https://i.postimg.cc/h4bg82Lx/Translation-Result.png)
 
-*The result in your Excel file should look like this*
+*The result in your Excel file should look like this.*
  
 ## Improve accuracy with Custom Translator <a name="improveAccuracyWithCustomTranslator"></a>
 
@@ -145,16 +145,12 @@ For more information, visit [here](https://learn.microsoft.com/fr-fr/azure/ai-se
 
 ## Contribute and support me
 
-As a passionate creator, I continually strive to improve my projects and offer quality solutions. If you find my achievements useful and want to contribute to their development, you can support me in different ways.
+As a passionate creator, I’m always working to improve my projects and deliver high-quality solutions. If you find them useful, here’s how you can support their growth:
 
-Your suggestions for improvements and new ideas are valuable, so don't hesitate to offer suggestions to enrich existing projects or to add new features. In addition, by sharing my projects and talking about them around you, you help to make them known and accessible to a greater number of users.
+- Share & suggest: Your ideas matter! Feel free to suggest improvements or new features through issues or discussions. Sharing the projects also helps make them more accessible to others.
+- Contribute code: Developers are welcome! Open a pull request for improvements, features, or bug fixes. Your contributions are highly appreciated.
+- Stay connected: Follow me on social networks to get updates on new projects, releases, and behind-the-scenes content.
+- Support the work: If you want to support financially, you can make a donation. Every contribution, big or small, helps me keep building.
 
-If you're a developer, your help is welcome! You can propose changes or bug fixes by submitting pull requests. Your expertise and contributions play a vital role in the continuous improvement of projects.
-
-In addition, I invite you to subscribe to my [social networks](https://linktr.ee/SeeByKilian) to stay informed of the latest updates, new features and upcoming projects. Your support on social media is a valuable way to motivate me to continue my efforts as a creator.
-
-Finally, if you appreciate my work and would like to provide financial support, you can make [a donation](https://streamlabs.com/SeeByKilian/tip). Each contribution, regardless of its size, is greatly appreciated and allows us to continue to develop quality projects.
-
-I would like to express my gratitude to all those who support my work. Every contribution, big or small, helps to move projects forward and provide ever better solutions. Your commitment and support are essential to help me grow as a creator and deliver achievements that enrich the community.
-
+Thanks to everyone who supports my work. Every action, from a suggestion to a share, plays a part in pushing these projects forward and growing this creative journey.
 Project created and developed by [SeeByKilian](https://github.com/SeeByKilian).
